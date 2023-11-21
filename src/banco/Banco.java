@@ -1,28 +1,38 @@
 package banco;
 
 import java.util.List;
+import java.util.Scanner;
 
- class Banco {
-    protected String nome;
-    protected List<Agencia> agencias;
+public class Banco {
+    public String nome;
+    public List<Agencia> agencias;
 
-
-
-    protected Banco(String nome) {
+     public Banco(String nome) {
         this.nome = nome;
         this.agencias = new java.util.ArrayList<>();
     }
-     protected String get_nome(){
+     public String get_nome(){
          return this.nome;
      }
 
-    protected void set_agencias(Agencia agg) {
+    public Agencia set_agencias() {
+        Scanner myObj = new Scanner(System.in);
+
+        System.out.println("Entre com o número de conta");
+        String num_str = myObj.nextLine();
+        int num = Integer.parseInt(num_str);
+
+        System.out.println("Informe o endereço");
+        String end = myObj.nextLine();
+
+        Agencia agg = new Agencia(num, end, this);
         agencias.add(agg);
+        return agg;
     }
 
-    protected void show_agencias() {
+    public void show_agencias() {
         for (Agencia obj : agencias) {
-            System.out.println(obj.get_nome());
+            System.out.println("AG: " + obj.get_numero());
         }
     }
 
