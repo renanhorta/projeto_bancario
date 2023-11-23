@@ -3,6 +3,7 @@ package banco;
 import banco.produto.Conta;
 import banco.produto.Produto;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -16,6 +17,7 @@ class Cliente {
         this.nome = nome;
         this.tel = tel;
         this.agencia = agencia;
+        this.produtos = new ArrayList<Produto>();
     }
 
     public void show_agencia_e_banco(){
